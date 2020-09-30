@@ -1,0 +1,8 @@
+jumbotron.jumbotron-fluid.header {
+    text-align: center;
+    background-color:blue;
+    color: whitesmoke;
+    border-bottom: solid 8px;
+    border-color: red;
+    outline: black solid 3px;
+  }

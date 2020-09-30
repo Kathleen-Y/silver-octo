@@ -1,15 +1,19 @@
-# silver-octo: Employee Directory
-![Github](http://www.Kathleen-Y.github.com/silver-octo)
+## silver-octo 
+![GitHub repo size](https://img.shields.io/github/repo-size/Kathleen-Y/silver-octo?logo=github)
+<hr >
 
 ## User Story
-As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
+`AS a USER, 
+I WANT to be able to view my entire employee directory
+at once I have quick access to their information.
+`
 
-## Languages
+## Technologies
 - HTML
 - CSS
-- React
-
+- React.JS 
+- ServiceWorker.js
 
 ## Contact
-* 
-* 
+* GitHub: [@profile](https://github.com/Kathleen-Y)
+* Twitter: [@Ros3p3tal](https://twitter.com/Ros3p3tal)
