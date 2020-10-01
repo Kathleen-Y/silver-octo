@@ -1,10 +1,9 @@
 import React from "react";
 import "./style.css";
 
-function SearchForm(props) {
+const SearchForm = (props) => {
   return (
     <nav className="navbar navbar-collapse md-dark">
-
         <input
         onChange={props.handleChange}
         className="form-control mr-sm-2"
@@ -14,7 +13,6 @@ function SearchForm(props) {
         name="search"
         value={props.search}
         />
-        
     </nav>
   )
 }

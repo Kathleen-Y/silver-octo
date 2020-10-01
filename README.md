@@ -8,6 +8,8 @@ I WANT to be able to view my entire employee directory
 at once I have quick access to their information.
 `
 
+[Click here](https://kathleen-y.github.io/silver-octo/)
+
 ## Technologies
 - HTML
 - CSS

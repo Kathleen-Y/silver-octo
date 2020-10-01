@@ -4,7 +4,7 @@ import sortAmountUp from './node_modules/@iconify/icons-uil/sort-amount-up';
 import sortAmountDown from './node_modules/@iconify/icons-uil/sort-amount-down';
 import API from "../../utils/API";
 import EmployeeData from "./EmployeeData";
-import SearchForm from "../searchform";
+import SearchForm from "../searchform/SearchForm";
 
 class Employee extends React.Component {
   state = {

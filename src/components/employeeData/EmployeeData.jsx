@@ -1,6 +1,6 @@
 import React from "react";
 
-function EmployeeData(props) {
+const EmployeeData = (props) => {
     return (
       <table className="table">
         <thead className="thead-dark">
