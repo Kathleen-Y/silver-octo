@@ -1,0 +1,12 @@
+.navbar {
+    background-color: aliceblue;
+    color: black;
+}
+
+.navbar-collapse {
+    margin: 0 auto;
+    justify-content: left;
+    align-items: flex-start;
+    background-color: beige;
+    color: black;
+}

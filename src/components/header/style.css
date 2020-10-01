@@ -1,4 +1,7 @@
-navbar.navbar-collapse.dark {
+.header {
+  text-align: center;
+  background-color: antiquewhite;
+  color: black;
   overflow: auto;
   margin-bottom: 10px;
 }
