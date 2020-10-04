@@ -1,12 +1,27 @@
 .navbar {
-    background-color: aliceblue;
-    color: black;
+    color: red;
+    width: 100%;
+    padding-right: 90px;
+    padding-left: 90px;
+    border-bottom: 2px solid #4dd0e1;
 }
 
-.navbar-collapse {
-    margin: 0 auto;
-    justify-content: left;
+.navbar-collapse, .jumbotron, .tr {
+    justify-content: center;
     align-items: flex-start;
-    background-color: beige;
-    color: black;
+    background-color: #4dd0e1;
+    color: lightcyan;
+}
+
+.form-control {
+    width: 100%;
+}
+.placeholder {
+        color: #4dd0e1;
+        outline: none;
+        box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.3);
+    }
+.table {
+    padding-left: 9%;
+    padding-right: 9%;
 }
