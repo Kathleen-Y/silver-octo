@@ -11,3 +11,9 @@ div[data-reactroot] {
   padding: 0;
   margin: 0;
 }
+
+ sortAmountDown, sortAmountup, Icon, InlineIcon
+  {
+  background: url('https://api.iconify.design/uil-sort-amount-down.svg')
+  no-repeat center center / contain;
+ }
