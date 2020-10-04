@@ -6,7 +6,6 @@ import sortAmountDown from '@iconify/icons-uil/sort-amount-down';
 import API from "../../utils/API";
 import EmployeeData from "./EmployeeData";
 import SearchForm from "../searchform/SearchForm";
-
  
 addIcon('sortAmountUp', sortAmountUp);
 addIcon('sortAmountDown', sortAmountDown);

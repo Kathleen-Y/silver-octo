@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //for styling
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 //for the main guts
 import * as serviceWorker from './serviceWorker';
 import App from './App';

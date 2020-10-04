@@ -1,0 +1,15 @@
+{
+  "short_name": "silver-octo-app",
+  "name": "silver-octo-app for Employee Dir",
+  "icons": [
+    {
+      "src": "/overtime.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#d6d4d4",
+  "background_color": "#8689ba"
+}
