@@ -10,97 +10,108 @@ import SearchForm from "../searchform/SearchForm";
 addIcon('sortAmountUp', sortAmountUp);
 addIcon('sortAmountDown', sortAmountDown);
 
-class Employee extends Component {
-  state = {
-    search: "",
-    className: sortAmountUp,
-    originalUsers: [],
-    filteredUsers: [],
-  };
+  class Employee extends Component {
 
-  componentDidMount() {
-    this.usersArr();
-  }
+    state = {
+        search: "",
+        original: [],
+        filtered: [],
+        filteredUsers: [],
+        className: "sort-amount-up"
+    };
 
-  usersArr = () => {
-    API.getUsers()
-      .then(res => this.setState({ originalUsers: res.data.results, filteredUsers: res.data.results }))
-      .catch(err => console.log(err));
-  }
+    componentDidMount() {
+        this.searchEmployee();
+    };
 
-  handleChange = e => {
-    const { name, value } = e.target;
-
-    this.setState({
-      [name]: value
-    });
-
-    if (value === "") {
-      this.setState({ filteredUsers: this.state.originalUsers })
-
-    } else if (value !== "") {
-      const filteredUsers = this.state.originalUsers.filter(data =>
-        data.name.first.toLowerCase().startsWith(value.toLowerCase()) || data.name.last.toLowerCase().startsWith(value.toLowerCase()) || (`${data.name.first} ${data.name.last}`).toLowerCase().startsWith(value.toLowerCase())
-      );
-      this.setState({ filteredUsers });
+    searchEmployee = () => {
+        API.search()
+            .then(res => this.setState({ original: res.data.results, filtered: res.data.results }))
+            .catch(err => console.log(err));
     }
-  };
 
-  className = (className) => {
-    if(className === sortAmountDown ){
-      this.setState({ sortAmountDown })
-    } else if(className === sortAmountDown ){
-      this.setState({ className: sortAmountUp })
+    filteredEmployee = (e) => {
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value
+        })
+        if (value === "") {
+            this.setState({ filtered: this.state.original })
+        } else if (value !== "") {
+            const filtered = this.state.original.filter(data =>
+                data.name.first.toLowerCase().startsWith(value.toLowerCase()) || data.name.last.toLowerCase().startsWith(value.toLowerCase()) || (`${data.name.first} ${data.name.last}`).toLowerCase().startsWith(value.toLowerCase())
+            )
+            this.setState({ filtered })
+        }
     }
-  }
 
-  handleSort = e => {
-    let {className, id} = e.target
-    
-    if(className === sortAmountUp && id === "name"){
-      const sortedUsersUp = this.state.filteredUsers.sort((a, b) => (a.name.first.toLowerCase() > b.name.first.toLowerCase()) ? 1 : -1)
-      this.className(className)
-      this.setState({ filteredUsers: sortedUsersUp });
-    } else if(className === sortAmountDown && id === "name"){
-      const sortedUsersDown = this.state.filteredUsers.sort((a, b) => (a.name.first.toLowerCase() < b.name.first.toLowerCase()) ? 1 : -1)
-      this.className(className)
-      this.setState({ filteredUsers: sortedUsersDown });
-
-    } else if(className === sortAmountUp && id === "phone"){
-      const sortedUsersUp = this.state.filteredUsers.sort((a, b) => (a.phone > b.phone) ? 1 : -1)
-      this.className(className)
-      this.setState({ filteredUsers: sortedUsersUp });
-    } else if(className === sortAmountDown && id === "phone"){
-      const sortedUsersDown = this.state.filteredUsers.sort((a, b) => (a.phone < b.phone) ? 1 : -1)
-      this.className(className)
-      this.setState({ filteredUsers: sortedUsersDown });
-
-    } else if(className === sortAmountUp && id === "email"){
-      const sortedUsersUp = this.state.filteredUsers.sort((a, b) => (a.email > b.email) ? 1 : -1)
-      this.className(className)
-      this.setState({ filteredUsers: sortedUsersUp });
-    } else if(className === sortAmountDown && id === "email"){
-      const sortedUsersDown = this.state.filteredUsers.sort((a, b) => (a.email < b.email) ? 1 : -1)
-      this.className(className)
-      this.setState({ filteredUsers: sortedUsersDown });
+    className = (className) => {
+        if (className === "sort-amount-up") {
+            this.setState({ className: "sort-amount-down" })
+        } else if (className === "sort-amount-down") {
+            this.setState({ className: "sort-amount-up" })
+        }
     }
-  }
 
-  render() {
-    return (
-      <div>
-        <SearchForm
-          search={this.state.search}
-          handleChange={this.handleChange}
-        />
-        <EmployeeData
-          users={this.state.filteredUsers}
-          handleSort={this.handleSort}
-          class={this.state.className}
-        />
-      </div>
-    )
-  }
+    sortedEmployee = (e) => {
+        const { className, id } = e.target;
+        if (className === "sort-amount-up" && id === "name") {
+            const sortAmountUp = this.state.filtered.sort((a, b) => (a.name.first.toLowerCase() > b.name.first.toLowerCase()) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountUp });
+
+        } else if (className === "sort-amount-down" && id === "name") {
+            const sortAmountDown = this.state.filtered.sort((a, b) => (a.name.first.toLowerCase() < b.name.first.toLowerCase()) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountDown });
+
+        } else if (className === "sort-amount-down" && id === "phone") {
+            const sortAmountDown = this.state.filtered.sort((a, b) => (a.phone > b.phone) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountDown });
+
+        } else if (className === "sort-amount-down" && id === "phone") {
+            const sortAmountDown = this.state.filtered.sort((a, b) => (a.phone < b.phone) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountDown });
+
+        } else if (className === "sort-amount-down" && id === "email") {
+            const sortAmountDown = this.state.filtered.sort((a, b) => (a.email.toLowerCase() > b.email.toLowerCase()) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountDown });
+
+        } else if (className === "sort-amount-down" && id === "email") {
+            const sortAmountDown = this.state.filtered.sort((a, b) => (a.email.toLowerCase() < b.email.toLowerCase()) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountDown });
+
+        } else if (className === "sort-amount-up" && id === "country") {
+            const sortAmountDown = this.state.filtered.sort((a, b) => (a.location.country.toLowerCase() > b.location.country.toLowerCase()) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountDown });
+
+        } else if (className === "sort-amount-down" && id === "country") {
+            const sortAmountDown = this.state.filtered.sort((a, b) => (a.location.country.toLowerCase() < b.location.country.toLowerCase()) ? 1 : -1)
+            this.className(className)
+            this.setState({ filteredEmployee: sortAmountDown });
+        }
+    };
+
+    render() {
+        return (
+            <div>
+                <SearchForm
+                    search={this.state.search}
+                    filteredEmployee={this.filteredEmployee}
+                />
+                <EmployeeData
+                    employee={this.state.filtered}
+                    sortedEmployee={this.sortedEmployee}
+                    className={this.state.className}
+                />
+            </div>
+        )
+    }
 }
 
 export default Employee;

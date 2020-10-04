@@ -1,28 +1,28 @@
 import React from "react";
 
-const EmployeeData = (props) => {
+function EmployeeData(props) {
     return (
-      <table className="table">
-        <thead className="thead-dark">
-          <tr>
-            <th scope="col">Photo</th>
-            <th scope="col">Name<span onClick={props.handleSort}><i id="name" className={props.class}></i></span></th>
-            <th scope="col">Phone<span onClick={props.handleSort}><i id="phone" className={props.class}></i></span></th>
-            <th scope="col">Email<span onClick={props.handleSort}><i id="email" className={props.class}></i></span></th>
-          </tr>
-        </thead>
-        <tbody>
-        {props.users.map(user => (
-          <tr key={user.email}>
-            <td><img src={user.picture.small} alt="employeePhoto" /></td>
-            <td>{user.name.first} {user.name.last}</td>
-            <td>{user.phone}</td>
-            <td>{user.email}</td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
+        <table className="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name<span onClick={props.sortedEmployee}><i className={props.className} id="name"></i></span></th>
+                    <th scope="col">Phone<span onClick={props.sortedEmployee}><i className={props.className} id="phone"></i></span></th>
+                    <th scope="col">Email<span onClick={props.sortedEmployee}><i className={props.className} id="email"></i></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                {props.employee.map(employee => (
+                    <tr key={employee.phone}>
+                        <td><img src={employee.picture.medium} alt="employee profile" /></td>
+                        <td>{employee.name.first} {employee.name.last}</td>
+                        <td>{employee.phone}</td>
+                        <td>{employee.email}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table >
     )
-}
+};
 
 export default EmployeeData;

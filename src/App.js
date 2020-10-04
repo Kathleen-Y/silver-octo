@@ -1,14 +1,14 @@
 import React from 'react';
 //module not found...
 import Header from "./components/header/header";
-import EmployeeData from "./components/employeeData/EmployeeData";
-import "./index.css";
+import Employee from "./components/employeeData/Employee";
+import "./App.css";
 
-const App = () => {
+function App () {
   return (
     <div>
       <Header />
-      <EmployeeData />
+      <Employee />
     </div>
   );
 }
